@@ -1,0 +1,16 @@
+{
+  "student": [
+    {
+      "id": 1,
+      "uname": "6ttt554",
+      "eml": "vaishalisargar@gmail.com",
+      "pass": "1234"
+    },
+    {
+      "uname": "we1235",
+      "eml": "vaishalisargar@gmail.com",
+      "pass": "1234",
+      "id": 2
+    }
+  ]
+}

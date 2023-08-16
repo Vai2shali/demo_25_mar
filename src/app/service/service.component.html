@@ -1,0 +1,44 @@
+
+<div class="container">
+  <form name="myForm" #frm="ngForm" (ngSubmit)="onSubmitdata(frm)">
+    <input type="hidden" name="id" #id="ngModel" [(ngModel)]="idd">
+    <div class="form-group">
+<label for="username">UserName:</label>
+<input type="text" name="uname" class="form-control" #uname="ngModel" [(ngModel)]="un">
+<label for="email">Email:</label>
+<input type="email" name="eml" class="form-control" #eml="ngModel" [(ngModel)]="em">
+<label for="password">Password:</label>
+<input type="password" name="pass" class="form-control" #pass="ngModel" [(ngModel)]="ps">
+
+    </div>
+    <button class="btn btn-success">Submit</button>
+    <button class="btn btn-info" (click)=" clickUpdateBtn(frm)">Get info</button>
+
+  </form>
+</div>
+
+
+
+   <div>
+    <table class="table table-responsive">
+        <tr>
+        <th>UserName</th >
+        <th>Email</th>
+        <th>Password</th>
+        <th>Action</th>
+        <th>Action</th>
+</tr>
+<tr *ngFor="let data of allData">
+    <td>{{data.uname}}</td>
+    <td>{{data.eml}}</td>
+    <td>{{data.pass}}</td>
+    <td>
+      <button class="btn btn-secondary" (click)="onDelData(data)">Delete</button>
+    </td>
+    <td>
+      <button class="btn btn-danger" (click)="onUpdateData(data)"> Updata</button>
+    </td>
+
+</tr>
+    </table>
+  </div>

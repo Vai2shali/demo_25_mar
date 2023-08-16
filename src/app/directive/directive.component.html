@@ -1,0 +1,27 @@
+ <p *ngIf="(showFlag && age>18)">{{shoeText}}</p>
+ <!--*ngFor-->
+ <select name="" id="">
+  <option *ngFor="let cnt of country">{{cnt}}</option>
+ </select>
+
+ <!--ngSwitch-->
+ <div [ngSwitch]="state">
+  <div *ngSwitchCase="'KA'">KARNATAK</div>
+  <div *ngSwitchCase="'MH'">MAHARASHTRA</div>
+ </div>
+ <div [ngSwitch]="state">
+  <div *ngSwitchCase="'KA'">KARNATAKA</div>
+  <div *ngSwitchDefaultCase> this is default case</div>
+  </div>
+
+  <!--class-->
+  <p class="testClass">This is p tag</p>
+ <p [ngClass]="testClass1">This p tag with ngclass</p>
+<p [ngClass]="(!showFlag && age>18)? 'test1':'test2'">This is the class</p>
+
+<!--style-->
+<p style="color:red">This is the p tag</p>
+<p [style]="{'color':'blue'}">This is ng style</p>
+<p [style]="showFlag?testClass2:testClass3">This is ternory operator
+    
+</p>

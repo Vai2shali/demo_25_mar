@@ -1,0 +1,62 @@
+ <h4>Template Crud From </h4>
+ <div class="container">
+    <form name="ngForm" #frm="ngForm" (ngSubmit)="frm.valid &&onsubmitData(frm)">
+      <input type="hidden" name="id" class="form-control" id="ngModel" ngModel [(ngModel)]="idd">
+      <div class="form-group">
+        <label for="username">UserName:</label><span style="color: red;">*</span>
+      <input type="text" name="uname" class="form-control" #uname="ngModel" ngModel
+      [(ngModel)]="un"
+      required [ngClass]="{'is-invalid':frm.submitted && uname.invalid}">
+      <div *ngIf="frm.submitted && uname.invalid" class="invalid-feedback">
+        This field is required
+      </div>
+
+      <label for="email">Email:</label><span style="color: red;">*</span>
+      <input type="email" name="eml" class="form-control" #eml="ngModel" ngModel
+      [(ngModel)]="em"
+      required [ngClass]="{'is-invalid':frm.submitted && eml.invalid}"
+      pattern="(/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/),">
+      <div *ngIf="eml.touched" class="invalid-feedback">
+        <div *ngIf="eml.errors?.['required']">This field is required</div>
+        <div *ngIf="eml.errors?.['pattern']">please enter email</div>
+
+      </div>
+ 
+      <label for="password">Password:</label> <span style="color: red;">*</span>
+      <input type="password" name="pass" class="form-control" #pass="ngModel" ngModel
+      [(ngModel)]="ps"
+      required [ngClass]="{'is-invalid':frm.submitted && pass.invalid}">
+      <div *ngIf="frm.submitted && pass.invalid" class="invalid-feedback">
+        please enter password
+      </div>
+      </div>
+      <button class="btn btn-info">Submit</button>&nbsp;
+      <button class="btn btn-success" (click)="onClickupdataeBtn(frm)">Updata</button>
+    </form>
+ </div>
+ <div>
+  <table class="table table-responsive">
+    <tr *ngIf="showTable">
+      <th>UserName</th>
+      <th>Email</th>
+      <th>Password</th>
+      <th>Action</th>
+      <th>Action</th>
+
+
+    </tr>
+    <tr *ngFor="let data of allData">
+    <td>{{data.uname}}</td>
+    <td>{{data.eml}}</td>
+    <td>{{data.pass}}</td>
+    <td>
+      <button class="btn btn-success" (click)="onDelData(data)">Delete</button>
+    </td>
+
+    <td>
+      <button class="btn btn-success" (click)="onUpdateData(data)">Updata</button>
+    </td>
+
+    </tr>
+  </table>
+ </div>
